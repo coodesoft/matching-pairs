@@ -12,7 +12,7 @@ BasicGame.Preloader.prototype = {
 
 	preload: function () {
 
-		
+
 		this.bck = this.add.sprite(this.world.centerX, this.world.centerY, 'preloaderBackground');
 		this.bck.anchor.setTo(0.5,0.5);
 		this.bck.scale.setTo(0.5,0.5);
@@ -20,14 +20,18 @@ BasicGame.Preloader.prototype = {
 		this.preloadBar.anchor.setTo(0,0.5);
 		this.preloadBar.scale.setTo(0.5,1);
 		this.preloadBar.x = this.world.centerX - this.preloadBar.width/2;
-		
-		
+
+
 		this.load.setPreloadSprite(this.preloadBar);
 
 		this.load.image('title', 'assets/title.png');
-		this.load.atlas('spriteset', 'assets/spritesheet.png', 'assets/spritesheet.jsona');
+		this.load.atlas('spriteset', 'assets/spritesheet.png', 'assets/spritesheet.json');
 		this.load.spritesheet('play','assets/play.png',400,110);
 		this.load.spritesheet('back','assets/back.png',400,110);
+		this.load.spritesheet('next','assets/next.png',397,110);
+		this.load.spritesheet('easy','assets/easy.png',397,110);
+		this.load.spritesheet('medium','assets/medium.png',397,110);
+		this.load.spritesheet('hard','assets/hard.png',397,110);
 		this.load.spritesheet('musicbutton','assets/music.png',400,110);
 		this.load.bitmapFont('font', 'assets/fnt2_0.png', 'assets/fnt2.fnt');
 		this.load.audio('music', ['assets/music.mp3','assets/music.ogg','assets/music.wav','assets/music.m4a']);
@@ -44,8 +48,6 @@ BasicGame.Preloader.prototype = {
 
 	update: function () {
 
-		
-		
 		if (this.cache.isSoundDecoded('music') && this.ready == false)
 		{
 			this.ready = true;

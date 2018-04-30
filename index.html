@@ -7,6 +7,7 @@
 	<script src="Boot.js"></script>
 	<script src="Preloader.js"></script>
 	<script src="MainMenu.js"></script>
+	<script src="GameOptions.js"></script>
 	<script src="Game.js"></script>
 </head>
 <body style="margin:0px;" bgcolor="#000000">
@@ -19,12 +20,13 @@ window.onload = function() {
 
 	var game = new Phaser.Game(360,600, Phaser.AUTO, 'gameContainer');
 
-	game.state.add('Boot', BasicGame.Boot);
-	game.state.add('Preloader', BasicGame.Preloader);
-	game.state.add('MainMenu', BasicGame.MainMenu);
-	game.state.add('Game', BasicGame.Game);
-	game.state.add('EndScreen',BasicGame.EndScreen);
-	
+	game.state.add('Boot',        BasicGame.Boot);
+	game.state.add('Preloader',   BasicGame.Preloader);
+	game.state.add('MainMenu',    BasicGame.MainMenu);
+	game.state.add('GameOptions', BasicGame.GameOptions);
+	game.state.add('Game',        BasicGame.Game);
+	game.state.add('EndScreen',   BasicGame.EndScreen);
+
 	game.state.start('Boot');
 
 };

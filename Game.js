@@ -6,44 +6,44 @@ BasicGame.Game = function (game) {
 BasicGame.Game.prototype = {
 
 	create: function () {
-        
-        this.toggle = true;
-        this.level = 4;
 
-        this.shapes = [];
-        this.solution = [];
-        this.shapeindex = 0;
+    this.toggle = true;
+    this.level = 4;
 
-        this.shape1 = null;
-        this.shape2 = null;
+    this.shapes = [];
+    this.solution = [];
+    this.shapeindex = 0;
 
-        this.placeBoxes('4x2');
+    this.shape1 = null;
+    this.shape2 = null;
 
-        this.totaltime = 0;
-        this.totalclicks = 0;
+    this.placeBoxes('4x2');
+
+    this.totaltime = 0;
+    this.totalclicks = 0;
 
 
-        this.music = this.add.audio('music',1,true);
-        if(playmusic==true){
-            this.music.play('',0,1,true);
-        }
+    this.music = this.add.audio('music',1,true);
+    if(playmusic==true){
+        this.music.play('',0,1,true);
+    }
 
-        this.blipsound = this.add.audio('blip');
+    this.blipsound = this.add.audio('blip');
 
-        this.timetext = this.add.bitmapText(this.world.centerX,10,'font','0',30);
-        this.timetext.x = this.world.centerX - this.timetext.textWidth/2;
-        this.time.events.loop(Phaser.Timer.SECOND, this.updateScore, this);
+    this.timetext = this.add.bitmapText(this.world.centerX,10,'font','0',30);
+    this.timetext.x = this.world.centerX - this.timetext.textWidth/2;
+    this.time.events.loop(Phaser.Timer.SECOND, this.updateScore, this);
 
-        this.backButton = this.add.button(10, this.world.height - 5, 'back', this.startGame, this, 1,0,2);
-        this.backButton.scale.setTo(0.4,0.4);
-        this.backButton.anchor.setTo(0,1);
+    this.backButton = this.add.button(10, this.world.height - 5, 'back', this.startGame, this, 1,0,2);
+    this.backButton.scale.setTo(0.4,0.4);
+    this.backButton.anchor.setTo(0,1);
 
-        this.musicButton = this.add.button(this.world.width-10, this.world.height - 5, 'musicbutton', this.changemusic, this, 1,0,2);
-        this.musicButton.scale.setTo(0.4,0.4);
-        this.musicButton.anchor.setTo(1,1);
+    this.musicButton = this.add.button(this.world.width-10, this.world.height - 5, 'musicbutton', this.changemusic, this, 1,0,2);
+    this.musicButton.scale.setTo(0.4,0.4);
+    this.musicButton.anchor.setTo(1,1);
 	},
 
-    changemusic : function(){
+	changemusic : function(){
         if(playmusic==true){
             this.music.stop();
             playmusic = false;
@@ -92,7 +92,7 @@ BasicGame.Game.prototype = {
 
             this.level +=1;
         }, this);
-        
+
     },
 
 	update: function () {
@@ -116,11 +116,7 @@ BasicGame.Game.prototype = {
             }
             else{
                 this.shape2 = a;
-                // if(this.shape1==this.shape2){
-                //     this.shape1.frameName = 'covershape.png';
-                //     this.shape1.inputEnabled = true;
-                // }
-                // else{
+
                     if(this.shape1.frameName!=this.shape2.frameName){
                         var temp_tween1 = this.add.tween(this.shape1).to({alpha:0}, 100, Phaser.Easing.Sinusoidal.Out, true);
                         var temp_tween2 = this.add.tween(this.shape2).to({alpha:0}, 100, Phaser.Easing.Sinusoidal.Out, true);
@@ -148,13 +144,11 @@ BasicGame.Game.prototype = {
                             this.nextLevel();
                         }
                     }
-                // }
                 this.toggle = true;
             }
 
         }
         out_tween.onComplete.add(in_tween,this);
-        
     },
 
     placeBoxes : function(type){
@@ -216,7 +210,7 @@ BasicGame.Game.prototype = {
         }
         for(var i=0;i<this.shapes.length;i++){
             this.shapes[i].frameName = 'covershape.png';
-            // this.shapes[i].scale.setTo(0.5,0.5);
+
             this.shapes[i].anchor.setTo(0.5,0.5);
             this.shapes[i].no = i;
             this.shapes[i].inputEnabled = true;
