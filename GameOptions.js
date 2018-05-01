@@ -10,7 +10,8 @@ BasicGame.GameOptions = function (game) {
 BasicGame.GameOptions.prototype = {
 
 	create: function () {
-
+		lluviaFondo(this);
+		
 		this.music = this.add.audio('music',1,true);
 		if(playmusic==true){
 			this.music.play('',0,1,true);

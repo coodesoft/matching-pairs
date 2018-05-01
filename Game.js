@@ -6,8 +6,9 @@ BasicGame.Game = function (game) {
 BasicGame.Game.prototype = {
 
 	create: function () {
+		lluviaFondo(this);
 
-    this.toggle = true;
+		this.toggle = true;
     this.level = 4;
 
     this.shapes = [];
@@ -107,7 +108,7 @@ BasicGame.Game.prototype = {
         var win = false;
         var out_tween = this.add.tween(a).to({alpha:0}, 100, Phaser.Easing.Sinusoidal.Out, true);
         var in_tween = function(){
-            a.frameName = 'shape'+this.solution[a.no]+'.png';
+            a.frameName = 'animal'+this.solution[a.no];
             this.add.tween(a).to({alpha:1}, 10, Phaser.Easing.Sinusoidal.In, true);
             if(this.toggle){
                 this.shape1 = a;
@@ -121,8 +122,8 @@ BasicGame.Game.prototype = {
                         var temp_tween1 = this.add.tween(this.shape1).to({alpha:0}, 100, Phaser.Easing.Sinusoidal.Out, true);
                         var temp_tween2 = this.add.tween(this.shape2).to({alpha:0}, 100, Phaser.Easing.Sinusoidal.Out, true);
                         temp_tween2.onComplete.add(function(){
-                            this.shape1.frameName = 'covershape.png';
-                            this.shape2.frameName = 'covershape.png';
+                            this.shape1.frameName = 'coveranimal';
+                            this.shape2.frameName = 'coveranimal';
                             this.add.tween(this.shape1).to({alpha:1}, 100, Phaser.Easing.Sinusoidal.Out, true);
                             this.add.tween(this.shape2).to({alpha:1}, 100, Phaser.Easing.Sinusoidal.Out, true);
                             this.shape1.inputEnabled = true;
@@ -160,7 +161,7 @@ BasicGame.Game.prototype = {
             case '2x2'  :   for(var i=0;i<2;i++){
                                 for(var j=0;j<2;j++){
                                     this.shapes[this.shapeindex] = this.add.sprite(this.world.centerX-60+120*j,this.world.centerY-60+120*i,'spriteset');
-                                    this.shapes[this.shapeindex].frameName = 'covershape.png';
+                                    this.shapes[this.shapeindex].frameName = 'coveranimal';
                                     this.shapes[this.shapeindex].anchor.setTo(0.5,0.5);
                                     this.shapeindex++;
                                 }
@@ -169,7 +170,7 @@ BasicGame.Game.prototype = {
             case '3x2'  :   for(var i=0;i<2;i++){
                                 for(var j=0;j<3;j++){
                                     this.shapes[this.shapeindex] = this.add.sprite(this.world.centerX-120+120*j,this.world.centerY-60+120*i,'spriteset');
-                                    this.shapes[this.shapeindex].frameName = 'covershape.png';
+                                    this.shapes[this.shapeindex].frameName = 'coveranimal';
                                     this.shapes[this.shapeindex].anchor.setTo(0.5,0.5);
                                     this.shapeindex++;
                                 }
@@ -178,7 +179,7 @@ BasicGame.Game.prototype = {
             case '4x2'  :   for(var i=0;i<4;i++){
                                 for(var j=0;j<2;j++){
                                     this.shapes[this.shapeindex] = this.add.sprite(this.world.centerX-60+120*j,this.world.centerY-190+120*i,'spriteset');
-                                    this.shapes[this.shapeindex].frameName = 'covershape.png';
+                                    this.shapes[this.shapeindex].frameName = 'coveranimal';
                                     this.shapes[this.shapeindex].anchor.setTo(0.5,0.5);
                                     this.shapeindex++;
                                 }
@@ -187,20 +188,20 @@ BasicGame.Game.prototype = {
             case '5x2'  :   for(var i=0;i<3;i++){
                                 for(var j=0;j<3;j++){
                                     this.shapes[this.shapeindex] = this.add.sprite(this.world.centerX-120+120*j,this.world.centerY-190+120*i,'spriteset');
-                                    this.shapes[this.shapeindex].frameName = 'covershape.png';
+                                    this.shapes[this.shapeindex].frameName = 'coveranimal';
                                     this.shapes[this.shapeindex].anchor.setTo(0.5,0.5);
                                     this.shapeindex++;
                                 }
                             }
                             this.shapes[this.shapeindex] = this.add.sprite(this.world.centerX,this.world.centerY+170,'spriteset');
-                            this.shapes[this.shapeindex].frameName = 'covershape.png';
+                            this.shapes[this.shapeindex].frameName = 'coveranimal';
                             this.shapes[this.shapeindex].anchor.setTo(0.5,0.5);
                             this.shapeindex++;
                             break;
             case '6x2'  :   for(var i=0;i<4;i++){
                                 for(var j=0;j<3;j++){
                                     this.shapes[this.shapeindex] = this.add.sprite(this.world.centerX-120+120*j,this.world.centerY-190+120*i,'spriteset');
-                                    this.shapes[this.shapeindex].frameName = 'covershape.png';
+                                    this.shapes[this.shapeindex].frameName = 'coveranimal';
                                     this.shapes[this.shapeindex].anchor.setTo(0.5,0.5);
                                     this.shapeindex++;
                                 }
@@ -209,7 +210,7 @@ BasicGame.Game.prototype = {
             default     :   break;
         }
         for(var i=0;i<this.shapes.length;i++){
-            this.shapes[i].frameName = 'covershape.png';
+            this.shapes[i].frameName = 'coveranimal';
 
             this.shapes[i].anchor.setTo(0.5,0.5);
             this.shapes[i].no = i;

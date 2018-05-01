@@ -9,6 +9,7 @@ BasicGame.MainMenu = function (game) {
 BasicGame.MainMenu.prototype = {
 
 	create: function () {
+		lluviaFondo(this);
 
 		this.music = this.add.audio('music',1,true);
 		if(playmusic==true){

@@ -1,7 +1,6 @@
 
 BasicGame.Preloader = function (game) {
 
-	this.background = null;
 	this.preloadBar = null;
 
 	this.ready = false;
@@ -25,6 +24,7 @@ BasicGame.Preloader.prototype = {
 		this.load.setPreloadSprite(this.preloadBar);
 
 		this.load.image('title', 'assets/title.png');
+		this.load.image('star', 'assets/star.png');
 		this.load.atlas('spriteset', 'assets/spritesheet.png', 'assets/spritesheet.json');
 		this.load.spritesheet('play','assets/play.png',400,110);
 		this.load.spritesheet('back','assets/back.png',400,110);

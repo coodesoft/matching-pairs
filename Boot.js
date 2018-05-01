@@ -16,6 +16,7 @@ BasicGame.Boot.prototype = {
     },
 
     create: function () {
+        this.game.stage.backgroundColor = "#0055D4";
 
         if (this.game.device.desktop)
         {
@@ -25,7 +26,6 @@ BasicGame.Boot.prototype = {
         }
         else
         {
-           
             this.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
             this.scale.minWidth = 150;
             this.scale.minHeight = 250;

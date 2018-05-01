@@ -31,6 +31,21 @@ window.onload = function() {
 
 };
 
+function lluviaFondo(f){
+	this.emitter = f.game.add.emitter(f.game.world.centerX,0,200);
+	emitter.alpha = 0.6;
+	emitter.width = f.game.world.width;
+	emitter.makeParticles('star');
+	emitter.minParticleScale = 0.2;
+	emitter.maxParticleScale = 0.7;
+	emitter.setYSpeed(50,150);
+	emitter.setXSpeed(1,30);
+	emitter.gravity = 1;
+	emitter.minRotation = -40;
+	emitter.maxRotation = 40;
+	emitter.start(false, 7000, 400, 0);
+}
+
 </script>
 
 </body>
